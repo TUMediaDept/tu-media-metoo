@@ -1,0 +1,18 @@
+server: 
+  port: 8080
+
+## Database 설정
+---
+spring:
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/tumedia
+    username: root
+    password: root
+    
+mybatis:
+  mapper-locations: classpath:/META-INF/mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true

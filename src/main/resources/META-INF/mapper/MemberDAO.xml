@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tumedia.metoo.dao.member.MemberDAO">
+
+	<insert id="signUp"
+		parameterType="com.tumedia.metoo.model.member.Member">
+		/* com.tumedia.metoo.dao.member.MemberDAO.signUp */
+		INSERT
+		INTO tumedia.MEMBER (
+			  MEMBER_ID
+			, PASSWORD
+			, NAME
+			, GRADE
+			, GENDER
+			, EMAIL
+			, COM_NAME
+			, DEPT_NO
+			, LEC_NO
+			, LEC_NO1
+			, LEC_NO2
+			, LEC_NO3
+			, LEC_NO4
+			, LEC_NO5
+			, REG_DATE
+		) VALUES (
+			#{memberId}
+			,#{password}
+			,#{name}
+			,#{grade}
+			,#{gender}
+			,#{email}
+			,#{comName}
+			,#{deptNo}
+			,#{lecNo}
+			,#{lecNo1}
+			,#{lecNo2}
+			,#{lecNo3}
+			,#{lecNo4}
+			,#{lecNo5}
+			, SYSDATE()
+		)
+	</insert>
+</mapper>
