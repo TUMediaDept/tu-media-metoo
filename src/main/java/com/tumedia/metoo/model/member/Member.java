@@ -27,8 +27,8 @@ public class Member implements Serializable {
 	private String lecNo3;				// 수강과목3
 	private String lecNo4;				// 수강과목4
 	private String lecNo5;				// 수강과목5
+	private String sts_dvcd;			// 재학 상태 (1. 재학 2. 휴학 3. 졸업 4. 기
 	private String regDate;				// 생성일
-	
 	public Member() {
 		
 	}
@@ -156,10 +156,20 @@ public class Member implements Serializable {
 	public String getRegDate() {
 		return regDate;
 	}
+	
+	public String getSts_dvcd() {
+		return sts_dvcd;
+	}
+
+	public void setSts_dvcd(String sts_dvcd) {
+		this.sts_dvcd = sts_dvcd;
+	}
 
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+
+
 	
 	
 }

@@ -8,7 +8,7 @@
 		/* com.tumedia.metoo.dao.member.MemberDAO.signUp */
 		INSERT
 		INTO tumedia.MEMBER (
-			  MEMBER_ID
+			  MEMBERID
 			, PASSWORD
 			, NAME
 			, GRADE
@@ -22,6 +22,7 @@
 			, LEC_NO3
 			, LEC_NO4
 			, LEC_NO5
+			, STS_DVCD
 			, REG_DATE
 		) VALUES (
 			#{memberId}
@@ -38,6 +39,7 @@
 			,#{lecNo3}
 			,#{lecNo4}
 			,#{lecNo5}
+			,#{sts_dvcd}
 			, SYSDATE()
 		)
 	</insert>

@@ -24,6 +24,7 @@ public class MemberDTO implements Serializable{
 	private String lecNo3;
 	private String lecNo4;
 	private String lecNo5;
+	private String sts_dvcd; // 재학 상태
 	private String regDate;
 	
 	
@@ -116,6 +117,12 @@ public class MemberDTO implements Serializable{
 	}
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
+	}
+	public String getSts_dvcd() {
+		return sts_dvcd;
+	}
+	public void setSts_dvcd(String sts_dvcd) {
+		this.sts_dvcd = sts_dvcd;
 	}
 
 }
