@@ -22,7 +22,7 @@ private static final long serialVersionUID = -7346858923123383239L;
 	private String title;
 	private String content;
 	private String noticeDvcd;
-	private String isFixed;
+	private String fixYn;
 	private int viewCnt;
 	private LocalDate regDate;
 	
