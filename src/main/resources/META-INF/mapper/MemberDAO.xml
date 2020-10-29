@@ -8,7 +8,7 @@
 		/* com.tumedia.metoo.dao.member.MemberDAO.signUp */
 		INSERT
 		INTO tumedia.MEMBER (
-			  MEMBERID
+			  MEMBER_ID
 			, PASSWORD
 			, NAME
 			, GRADE
