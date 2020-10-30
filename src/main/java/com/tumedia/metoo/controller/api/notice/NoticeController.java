@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tumedia.metoo.common.data.Response;
-import com.tumedia.metoo.dao.member.NoticeDAO;
+import com.tumedia.metoo.dao.notice.NoticeDAO;
 import com.tumedia.metoo.model.notice.Notice;
 
 @RestController

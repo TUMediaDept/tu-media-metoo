@@ -3,19 +3,20 @@
 
 <mapper namespace="com.tumedia.metoo.dao.notice.NoticeDAO">
 
-	<select id="listAllNotice" parameterType="com.tumedia.metoo.model.notice.Notice">
+	<select id="listAllByNotice" parameterType="com.tumedia.metoo.model.notice.Notice">
 	SELECT  TITLE
 		  , CONTENT
+		  , NAME
 		  , NOTICE_DVCD
-		  , FIX_YN
 		  , VIEW_CNT
+		  , FILES
+		  , FIX_YN
 		  , REG_DATE
 	FROM tumedia.Notice;
 	</select>
 	
 	<insert id="insertBoard"
 		parameterType="com.tumedia.metoo.model.notice.Notice">
-		
 		INSERT
 		INTO tumedia.Notice ( 
 			 TITLE

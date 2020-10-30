@@ -1,4 +1,4 @@
-package com.tumedia.metoo.dao.member;
+package com.tumedia.metoo.dao.notice;
 
 import java.util.List;
 
@@ -12,5 +12,4 @@ import com.tumedia.metoo.model.notice.Notice;
 public interface NoticeDAO {
 	public List<Notice> listAllByNotice();
 	void insertBoard(Notice notice);
-
 }

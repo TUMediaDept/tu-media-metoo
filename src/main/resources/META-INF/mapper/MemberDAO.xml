@@ -16,7 +16,6 @@
 			, EMAIL
 			, COM_NAME
 			, DEPT_NO
-			, LEC_NO
 			, LEC_NO1
 			, LEC_NO2
 			, LEC_NO3
@@ -33,7 +32,6 @@
 			,#{email}
 			,#{comName}
 			,#{deptNo}
-			,#{lecNo}
 			,#{lecNo1}
 			,#{lecNo2}
 			,#{lecNo3}

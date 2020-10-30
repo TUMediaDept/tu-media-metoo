@@ -58,7 +58,6 @@ public class MemberController {
 			member.setEmail(memberDTO.getEmail());
 			member.setComName(memberDTO.getComName());
 			member.setDeptNo(memberDTO.getDeptNo());
-			member.setLecNo(memberDTO.getLecNo());
 			member.setLecNo1(memberDTO.getLecNo1());
 			member.setLecNo2(memberDTO.getLecNo2());
 			member.setLecNo3(memberDTO.getLecNo3());
