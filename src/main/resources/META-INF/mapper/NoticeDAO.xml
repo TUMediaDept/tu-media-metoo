@@ -3,13 +3,12 @@
 
 <mapper namespace="com.tumedia.metoo.dao.notice.NoticeDAO">
 
-	<select id="listAllByNotice" parameterType="com.tumedia.metoo.model.notice.Notice">
+	<select id="listAllByNotice" parameterType="com.tumedia.metoo.model.notice.Notice" resultType="com.tumedia.metoo.model.notice.Notice">
 	SELECT  TITLE
 		  , CONTENT
 		  , NAME
 		  , NOTICE_DVCD
 		  , VIEW_CNT
-		  , FILES
 		  , FIX_YN
 		  , REG_DATE
 	FROM tumedia.Notice;
