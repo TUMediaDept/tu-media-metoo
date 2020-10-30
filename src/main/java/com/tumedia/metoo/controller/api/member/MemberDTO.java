@@ -18,7 +18,6 @@ public class MemberDTO implements Serializable{
 	private String email;
 	private String comName;
 	private String deptNo;
-	private String lecNo;
 	private String lecNo1;
 	private String lecNo2;
 	private String lecNo3;
@@ -76,12 +75,7 @@ public class MemberDTO implements Serializable{
 	public void setDeptNo(String deptNo) {
 		this.deptNo = deptNo;
 	}
-	public String getLecNo() {
-		return lecNo;
-	}
-	public void setLecNo(String lecNo) {
-		this.lecNo = lecNo;
-	}
+
 	public String getLecNo1() {
 		return lecNo1;
 	}

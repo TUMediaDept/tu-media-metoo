@@ -25,7 +25,6 @@ public class Member implements Serializable {
 	private String email;				// 이메일
 	private String comName;				// 대학코드
 	private String deptNo;				// 학과코드
-	private String lecNo;				// 과목번호 (?? TODO:필요 여부 확인)
 	private String lecNo1;				// 수강과목1
 	private String lecNo2;				// 수강과목2
 	private String lecNo3;				// 수강과목3
