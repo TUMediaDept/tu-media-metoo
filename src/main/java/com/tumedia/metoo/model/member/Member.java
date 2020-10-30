@@ -30,7 +30,7 @@ public class Member implements Serializable {
 	private String lecNo3;				// 수강과목3
 	private String lecNo4;				// 수강과목4
 	private String lecNo5;				// 수강과목5
-	private String stsDvcd;			// 재학 상태 (1. 재학 2. 휴학 3. 졸업 4. 기
+	private String sts_dvcd;			// 재학 상태 (1. 재학 2. 휴학 3. 졸업 4. 기
 	private String regDate;				// 생성일
 
 	

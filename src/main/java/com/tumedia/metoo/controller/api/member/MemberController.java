@@ -63,7 +63,7 @@ public class MemberController {
 			member.setLecNo3(memberDTO.getLecNo3());
 			member.setLecNo4(memberDTO.getLecNo4());
 			member.setLecNo5(memberDTO.getLecNo5());
-			member.setStsDvcd(memberDTO.getStsDvcd());
+			member.setSts_dvcd(memberDTO.getSts_dvcd());
 			memberDAO.signUp(member);
 			res.setData(member);
 		} else {

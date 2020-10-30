@@ -37,7 +37,7 @@
 			,#{lecNo3}
 			,#{lecNo4}
 			,#{lecNo5}
-			,#{stsDvcd}
+			,#{sts_dvcd}
 			, SYSDATE()
 		)
 	</insert>
