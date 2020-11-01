@@ -36,4 +36,9 @@ public class CommonController {
 	// 세션 생성
 	
 	// 세션 정보 받아오
+	
+	
+	
+		
+	
 }

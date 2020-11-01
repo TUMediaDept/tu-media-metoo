@@ -58,12 +58,12 @@ public class MemberController {
 			member.setEmail(memberDTO.getEmail());
 			member.setComName(memberDTO.getComName());
 			member.setDeptNo(memberDTO.getDeptNo());
-			member.setLecNo(memberDTO.getLecNo());
 			member.setLecNo1(memberDTO.getLecNo1());
 			member.setLecNo2(memberDTO.getLecNo2());
 			member.setLecNo3(memberDTO.getLecNo3());
 			member.setLecNo4(memberDTO.getLecNo4());
 			member.setLecNo5(memberDTO.getLecNo5());
+			member.setStsDvcd(memberDTO.getStsDvcd());
 			memberDAO.signUp(member);
 			res.setData(member);
 		} else {

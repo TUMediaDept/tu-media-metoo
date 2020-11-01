@@ -16,12 +16,12 @@
 			, EMAIL
 			, COM_NAME
 			, DEPT_NO
-			, LEC_NO
 			, LEC_NO1
 			, LEC_NO2
 			, LEC_NO3
 			, LEC_NO4
 			, LEC_NO5
+			, STS_DVCD
 			, REG_DATE
 		) VALUES (
 			#{memberId}
@@ -32,12 +32,12 @@
 			,#{email}
 			,#{comName}
 			,#{deptNo}
-			,#{lecNo}
 			,#{lecNo1}
 			,#{lecNo2}
 			,#{lecNo3}
 			,#{lecNo4}
 			,#{lecNo5}
+			,#{stsDvcd}
 			, SYSDATE()
 		)
 	</insert>
