@@ -17,7 +17,7 @@
 	<insert id="insertBoard"
 		parameterType="com.tumedia.metoo.model.notice.Notice">
 		INSERT
-		INTO tumedia.Notice ( 
+		INTO tumedia.NOTICE ( 
 			 TITLE
 			, CONTENT
 			, NOTICE_DVCD

@@ -43,7 +43,7 @@ public class NoticeController {
 //			notice1.setView_cnt(2);
 //			notice1.setReg_date(LocalDate.now());
 			arrNotice = noticeDAO.listAllByNotice();
-			param.put("noitce", arrNotice);
+			param.put("notice", arrNotice);
 			
 			System.out.println(new Response(param));
 //			res.setData(notice1);
