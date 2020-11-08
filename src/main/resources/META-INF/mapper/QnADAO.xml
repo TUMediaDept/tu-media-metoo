@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tumedia.metoo.dao.qna.QnADAO">
+
+	<select id="findAllQnA"
+		resultType="com.tumedia.metoo.model.qna.QnA">
+		SELECT
+		*
+		FROM tumedia.QUESTION
+	</select>
+
+	<select id="findQnADetailBySeq"
+		resultType="com.tumedia.metoo.model.qna.QnA">
+		SELECT 
+		*
+		FROM tumedia.QUESTION
+		WHERE ID = #{id}
+	</select>
+
+	<insert id="insertQnA"
+		parameterType="com.tumedia.metoo.model.qna.QnA">
+		
+		INSERT
+		INTO tumedia.QUESTION (
+			  TITLE
+			, CONTENT
+			, QUESTION_DVCD
+			, VIEW_CNT
+			, AUTHOR
+			, FILES
+			, CREATED_AT		
+		) VALUES (
+			#{title}
+			,#{content}
+			,#{questionDvcd}
+			,#{viewCnt}
+			,#{author}
+			,#{files}
+			,SYSDATE()
+		)
+
+	</insert>
+
+</mapper>

@@ -23,7 +23,7 @@ public class Member implements Serializable {
 	private String grade;				// 학년 (1,2,3,4)
 	private String gender;				// 성별 (1: 남자, 2:여자) 
 	private String email;				// 이메일
-	private String comName;				// 대학코드
+	private String comNo;				// 대학코드
 	private String deptNo;				// 학과코드
 	private String lecNo1;				// 수강과목1
 	private String lecNo2;				// 수강과목2

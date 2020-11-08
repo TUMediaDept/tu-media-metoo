@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tumedia.metoo.common.CommonUtil;
 import com.tumedia.metoo.common.data.Response;
 import com.tumedia.metoo.dao.member.MemberDAO;
 
@@ -30,7 +31,11 @@ public class CommonController {
 	public Response<Map<String, Object>> data() {
 		//TODO: 초기데이터 설계 및 생성
 		HashMap<String, Object> param = new HashMap<>();
-
+		
+		int num1 = 0;
+		int num2 = 2;
+		
+		int result = CommonUtil.doAdd(num1, num2);
 		return new Response(param);
 	}
 	// 세션 생성

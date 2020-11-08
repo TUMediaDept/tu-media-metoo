@@ -3,34 +3,20 @@
 
 <mapper namespace="com.tumedia.metoo.dao.notice.NoticeDAO">
 
-	<select id="listAllByNotice" parameterType="com.tumedia.metoo.model.notice.Notice" resultType="com.tumedia.metoo.model.notice.Notice">
-	SELECT  TITLE
-		  , CONTENT
-		  , NAME
-		  , NOTICE_DVCD
-		  , VIEW_CNT
-		  , FIX_YN
-		  , REG_DATE
-	FROM tumedia.Notice;
+	<select id="listAllByNotice"
+		resultType="com.tumedia.metoo.model.notice.Notice">
+		SELECT
+		*
+		FROM tumedia.NOTICE
 	</select>
-	
-	<insert id="insertBoard"
-		parameterType="com.tumedia.metoo.model.notice.Notice">
-		INSERT
-		INTO tumedia.NOTICE ( 
-			 TITLE
-			, CONTENT
-			, NOTICE_DVCD
-			, FIX_YN
-			, VIEW_CNT
-			, REG_DATE
-		) VALUES (
-			#{title}
-			,#{content}
-			,#{notice_dvcd}
-			,#{FIX_YN}
-			,#{view_cnt}
-			,SYSDATE()
-		)
-	</insert>
+
+	<select id="findNoticeDetails"
+		resultType="com.tumedia.metoo.model.notice.Notice">
+		SELECT 
+		*
+		FROM tumedia.NOTICE
+		WHERE ID = #{ID}
+	</select>
+
+
 </mapper>

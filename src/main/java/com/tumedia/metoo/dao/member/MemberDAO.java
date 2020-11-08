@@ -5,11 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.tumedia.metoo.model.member.Member;
 
-/**
- * memberDAO -> resource/mapper/memberDAO 매칭
- */
 @Repository
 @Mapper
 public interface MemberDAO {
-	void signUp(Member mebmer);
+	boolean insertMember(Member mebmer);
 }

@@ -1,6 +1,10 @@
 package com.tumedia.metoo.common.data;
 
+import org.apache.ibatis.type.Alias;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -10,41 +14,18 @@ import lombok.Data;
  * 
  * @param <T>
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Response<T> {
+	
     private int statusCode;
     private String message;
     private T data;
 
-    public Response() {}
 
     public Response(T data) {
         this.data = data;
-    }
-
-	public int getStatusCode() {
-		return statusCode;
-	}
-
-	public void setStatusCode(int statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
-    
+    }    
     
 }
