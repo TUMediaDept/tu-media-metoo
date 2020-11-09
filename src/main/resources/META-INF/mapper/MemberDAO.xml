@@ -3,42 +3,57 @@
 
 <mapper namespace="com.tumedia.metoo.dao.member.MemberDAO">
 
-	<insert id="signUp"
-		parameterType="com.tumedia.metoo.model.member.Member">
-		/* com.tumedia.metoo.dao.member.MemberDAO.signUp */
+	<insert id="insertMember">
 		INSERT
 		INTO tumedia.MEMBER (
-			  MEMBER_ID
-			, PASSWORD
-			, NAME
-			, GRADE
-			, GENDER
-			, EMAIL
-			, COM_NAME
-			, DEPT_NO
-			, LEC_NO1
-			, LEC_NO2
-			, LEC_NO3
-			, LEC_NO4
-			, LEC_NO5
-			, STS_DVCD
-			, REG_DATE
+		MEMBER_ID
+		, PASSWORD
+		, NAME
+		, GRADE
+		, GENDER
+		, EMAIL
+		, COM_NO
+		, DEPT_NO
+		, LEC_NO1
+		, LEC_NO2
+		, LEC_NO3
+		, LEC_NO4
+		, LEC_NO5
+		, STS_DVCD
+		, REG_DATE
 		) VALUES (
-			#{memberId}
-			,#{password}
-			,#{name}
-			,#{grade}
-			,#{gender}
-			,#{email}
-			,#{comName}
-			,#{deptNo}
-			,#{lecNo1}
-			,#{lecNo2}
-			,#{lecNo3}
-			,#{lecNo4}
-			,#{lecNo5}
-			,#{stsDvcd}
-			, SYSDATE()
+		#{memberId}
+		,#{password}
+		,#{name}
+		,#{grade}
+		,#{gender}
+		,#{email}
+		,#{comNo}
+		,#{deptNo}
+		,#{lecNo1}
+		,#{lecNo2}
+		,#{lecNo3}
+		,#{lecNo4}
+		,#{lecNo5}
+		,#{stsDvcd}
+		, SYSDATE()
 		)
 	</insert>
+
+	<select id="findAllMember" resultType="com.tumedia.metoo.model.member.Member">
+		SELECT
+		*
+		FROM
+		tumedia.Member
+	</select>
+	
+	<select id="findMemberDetailById" resultType="com.tumedia.metoo.model.member.Member">
+		SELECT
+		*
+		FROM
+		tumedia.Member
+		WHERE ID = #{id}
+	</select>
+	
+	
 </mapper>
