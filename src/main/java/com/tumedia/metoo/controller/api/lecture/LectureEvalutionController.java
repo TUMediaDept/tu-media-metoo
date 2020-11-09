@@ -22,7 +22,7 @@ import com.tumedia.metoo.common.data.ResponseMessage;
 import com.tumedia.metoo.common.data.StatusEnum;
 import com.tumedia.metoo.model.lecture.LectureEvalution;
 import com.tumedia.metoo.model.notice.Notice;
-import com.tumedia.metoo.service.LectureEvalutionService;
+import com.tumedia.metoo.service.lecture.LectureEvalutionService;
 
 
 @RestController

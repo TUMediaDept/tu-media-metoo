@@ -1,4 +1,4 @@
-package com.tumedia.metoo.service;
+package com.tumedia.metoo.service.lecture;
 
 import java.util.List;
 

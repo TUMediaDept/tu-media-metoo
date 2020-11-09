@@ -14,6 +14,7 @@ target/
 .sts4-cache
 .pom.xml
 bin
+.DB_Store
 
 ### IntelliJ IDEA ###
 .idea
