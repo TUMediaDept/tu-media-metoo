@@ -14,10 +14,6 @@ target/
 .sts4-cache
 bin
 pom.xml.*
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
 
 
 ### IntelliJ IDEA ###
