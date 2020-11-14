@@ -36,7 +36,7 @@ public class MemberController {
 	private MemberService memberService;
 
 	// 회원 가입
-	@PostMapping("/member")
+	@PostMapping("/member/signup")
 	public ResponseEntity<ResponseMessage> insertMember(@Valid @ModelAttribute Member member,
 			BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
 
