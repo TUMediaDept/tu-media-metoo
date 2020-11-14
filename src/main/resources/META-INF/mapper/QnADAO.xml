@@ -8,6 +8,7 @@
 		SELECT
 		*
 		FROM tumedia.QUESTION
+		WHERE TYPE = #{type}
 	</select>
 
 	<select id="findQnADetailById"
@@ -25,7 +26,7 @@
 		INTO tumedia.QUESTION (
 			  TITLE
 			, CONTENT
-			, QUESTION_DVCD
+			, TYPE
 			, VIEW_CNT
 			, AUTHOR
 			, FILES
@@ -33,7 +34,7 @@
 		) VALUES (
 			#{title}
 			,#{content}
-			,#{questionDvcd}
+			,#{type}
 			,#{viewCnt}
 			,#{author}
 			,#{files}

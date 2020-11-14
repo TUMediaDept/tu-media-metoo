@@ -11,7 +11,7 @@ import com.tumedia.metoo.model.qna.QnA;
 @Mapper
 public interface QnADAO {
 	
-	List<QnA> findAllQnA();
+	List<QnA> findAllQnA(int type);
 	
 	QnA findQnADetailById(int id);
 	

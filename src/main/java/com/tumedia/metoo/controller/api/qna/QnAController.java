@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tumedia.metoo.common.data.ResponseMessage;
@@ -31,12 +32,12 @@ public class QnAController {
 	private QnAService qnaService;
 	
 	@GetMapping("/qna")
-	ResponseEntity<ResponseMessage> findAllQnA(@ModelAttribute QnA QnA, 
+	ResponseEntity<ResponseMessage> findAllQnA(@RequestParam(value = "type") int type, 
 														HttpServletRequest request, 	
 														HttpServletResponse response) {
 
 		// 리스트 조회
-		List<QnA> qnaList = qnaService.findAllQnA();
+		List<QnA> qnaList = qnaService.findAllQnA(type);
 
 		// 응답 Message Header setting
 		HttpHeaders headers = new HttpHeaders();
@@ -79,8 +80,8 @@ public class QnAController {
 		return new ResponseEntity<>(rms, headers, HttpStatus.OK);
 	}
 	
-	@PostMapping("/qna")
-	public ResponseEntity<ResponseMessage> insertMember(@ModelAttribute QnA qna) {
+	@PostMapping("/qna/insertQnA")
+	public ResponseEntity<ResponseMessage> insertQnA(@ModelAttribute QnA qna) {
 
 		// QnA 등록 결과 : 1. 성공 0. 실패
 		boolean result = qnaService.insertQnA(qna);

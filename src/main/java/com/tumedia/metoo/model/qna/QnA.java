@@ -18,7 +18,7 @@ public class QnA implements Serializable{
 	private int id;
 	private String title;
 	private String content;
-	private String questionDvcd;
+	private int type;
 	private String viewCnt;
 	private String author;
 	private String files;

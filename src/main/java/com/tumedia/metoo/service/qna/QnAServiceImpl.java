@@ -16,9 +16,9 @@ public class QnAServiceImpl implements QnAService{
 	private QnADAO qnaDao;
 	
 	@Override
-	public List<QnA> findAllQnA() {
+	public List<QnA> findAllQnA(int type) {
 		// TODO Auto-generated method stub
-		return qnaDao.findAllQnA();
+		return qnaDao.findAllQnA(type);
 	}
 
 	@Override
