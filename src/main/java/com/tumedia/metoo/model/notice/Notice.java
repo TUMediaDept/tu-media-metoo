@@ -26,7 +26,7 @@ private static final long serialVersionUID = -7346858923123383239L;
 	
 	private String content;
 	
-	private String name;
+	private String author;
 	
 	private String noticeDvcd;
 	

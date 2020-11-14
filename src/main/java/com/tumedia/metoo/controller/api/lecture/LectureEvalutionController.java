@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tumedia.metoo.common.data.ResponseMessage;
 import com.tumedia.metoo.common.data.StatusEnum;
-import com.tumedia.metoo.model.lecture.LectureEvalution;
+import com.tumedia.metoo.model.lecture.LectureEvaluation;
 import com.tumedia.metoo.model.notice.Notice;
-import com.tumedia.metoo.service.lecture.LectureEvalutionService;
+import com.tumedia.metoo.service.lecture.LectureEvaluationService;
 
 
 @RestController
@@ -30,15 +30,15 @@ import com.tumedia.metoo.service.lecture.LectureEvalutionService;
 public class LectureEvalutionController {
 	
 	@Autowired
-	private LectureEvalutionService lectureEvalutionService;
+	private LectureEvaluationService lectureEvalutionService;
 	
 	@GetMapping("/evaluation")
-	ResponseEntity<ResponseMessage> getAllNoticeList(@ModelAttribute Notice notice, 
+	ResponseEntity<ResponseMessage> findAllEvaluationList(@ModelAttribute LectureEvaluation lectureEvalution, 
 														HttpServletRequest request, 	
 														HttpServletResponse response) {
 
 		// 리스트 조회
-		List<LectureEvalution> lectureEvalutionList = lectureEvalutionService.findAllLectureEvalution();
+		List<LectureEvaluation> lectureEvalutionList = lectureEvalutionService.findAllLectureEvaluation();
 
 		// 응답 Message Header setting
 		HttpHeaders headers = new HttpHeaders();
@@ -61,7 +61,7 @@ public class LectureEvalutionController {
 	public ResponseEntity<ResponseMessage> findQnADetailById(@PathVariable int id) {
 
 
-		LectureEvalution lectureEvalution = lectureEvalutionService.findEvalutionDetailBySeq(id);
+		LectureEvaluation lectureEvalution = lectureEvalutionService.findEvaluationDetailBySeq(id);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
@@ -82,10 +82,10 @@ public class LectureEvalutionController {
 	}
 	
 	@PostMapping("/evaluation")
-	public ResponseEntity<ResponseMessage> insertMember(@ModelAttribute LectureEvalution lectureEvalution) {
+	public ResponseEntity<ResponseMessage> insertMember(@ModelAttribute LectureEvaluation lectureEvaluation) {
 
 		// 리스트 등록 결과 : 1. 성공 0. 실패
-		boolean result = lectureEvalutionService.insertLectureEvalution(lectureEvalution);
+		boolean result = lectureEvalutionService.insertLectureEvaluation(lectureEvaluation);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));

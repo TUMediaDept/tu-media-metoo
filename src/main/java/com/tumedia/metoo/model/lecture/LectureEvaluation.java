@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class LectureEvalution implements Serializable{
+public class LectureEvaluation implements Serializable{
 	
 
 	private static final long serialVersionUID = 1L;
@@ -28,6 +28,8 @@ public class LectureEvalution implements Serializable{
 	private String lecName;    // 강의명
 	
 	private String lecNo;
+	
+	private String author;
 	
 	private String pName;
 	

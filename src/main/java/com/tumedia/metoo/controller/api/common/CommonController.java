@@ -16,7 +16,8 @@ import lombok.RequiredArgsConstructor;
 /**
  * 공통 기능 컨트롤러(회원가입, 로그인, 초기데이터 등)
  */
-@RequiredArgsConstructor
+
+
 @RestController
 @RequestMapping("/api")
 public class CommonController {
