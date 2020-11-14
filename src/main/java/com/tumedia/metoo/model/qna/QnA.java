@@ -1,4 +1,4 @@
-package com.tumedia.metoo.model.notice;
+package com.tumedia.metoo.model.qna;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,18 +7,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class Notice implements Serializable {
+public class QnA implements Serializable{
 	
-private static final long serialVersionUID = -7346858923123383239L;
 	
+	private static final long serialVersionUID = 1L;
+
 	public static final String ANDORID = "1";
 	
 	public static final String IOS = "2";
+	
 	
 	private int id;
 	
@@ -26,15 +26,16 @@ private static final long serialVersionUID = -7346858923123383239L;
 	
 	private String content;
 	
-	private String name;
+	private String questionDvcd;
 	
-	private String noticeDvcd;
+	private String viewCnt;
 	
-	private String fixYn;
+	private String author;
 	
-	private int viewCnt;
+	private String files;
 	
-	private LocalDate regDate;
+	private LocalDate createdAt;
 	
-	
+	private LocalDate updatedAt;
+
 }

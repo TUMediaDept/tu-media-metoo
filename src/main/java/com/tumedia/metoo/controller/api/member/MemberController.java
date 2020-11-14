@@ -1,90 +1,113 @@
 package com.tumedia.metoo.controller.api.member;
 
+import java.nio.charset.Charset;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tumedia.metoo.dao.member.MemberDAO;
-
-import com.tumedia.metoo.common.data.Response;
-import com.tumedia.metoo.controller.api.member.MemberDTO;
+import com.tumedia.metoo.common.data.ResponseMessage;
+import com.tumedia.metoo.common.data.StatusEnum;
 import com.tumedia.metoo.model.member.Member;
+import com.tumedia.metoo.service.member.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/member")
+@RequestMapping("/api")
 public class MemberController {
 
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberService memberService;
 
-	// 회원가입
-	@PostMapping("/signup")
-	public Response<Member> signUp(
-			@Valid @ModelAttribute MemberDTO memberDTO,
-//			@RequestBody MemberDTO memberDTO,
-								   BindingResult result,
-								   HttpServletRequest request, 
-								   HttpServletResponse response) {
+	// 회원 가입
+	@PostMapping("/member")
+	public ResponseEntity<ResponseMessage> insertMember(@Valid @ModelAttribute Member member,
+			BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
 
-		Response<Member> res = new Response<>();
+		// 회원 가입 결과 : 1. 성공 0. 실패
+		boolean insertResult = memberService.insertMember(member);
 
-		Member member = new Member();
-		member.setMemberId(memberDTO.getMemberId());
-		
-//		Member record = memberDAO.selectOneMember(member); // 회원 단건 조회
-		Member record = null;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 
-		if (record == null) {
-			// 신규 회원가입
-			member = new Member();
-			member.setMemberId(memberDTO.getMemberId());
-			member.setPassword(memberDTO.getPassword());
-			member.setName(memberDTO.getName());
-			member.setGrade(memberDTO.getGrade());
-			member.setGender(memberDTO.getGender());
-			member.setEmail(memberDTO.getEmail());
-			member.setComName(memberDTO.getComName());
-			member.setDeptNo(memberDTO.getDeptNo());
-			member.setLecNo1(memberDTO.getLecNo1());
-			member.setLecNo2(memberDTO.getLecNo2());
-			member.setLecNo3(memberDTO.getLecNo3());
-			member.setLecNo4(memberDTO.getLecNo4());
-			member.setLecNo5(memberDTO.getLecNo5());
-			member.setStsDvcd(memberDTO.getStsDvcd());
-			memberDAO.signUp(member);
-			res.setData(member);
+		ResponseMessage rms = new ResponseMessage();
+
+		if (insertResult = true) {
+			rms.setData(insertResult);
+			rms.setMessage("회원가입 성공");
+			rms.setStatus(StatusEnum.OK);
 		} else {
-			// 탈퇴 회원 재가입 (회원탈퇴 기능 현재 계획에 없음)
+			rms.setData(insertResult);
+			rms.setMessage("회원가입 실패");
+			rms.setStatus(StatusEnum.INTERNAL_SERER_ERROR);
 		}
-//		member.setMemberId("1111");
-//		member.setPassword("2222");
-//		member.setName("테스트계정");
-//		member.setGrade("1");
-//		member.setGender("1");
-//		member.setEmail("test@test.test");
-//		member.setComName("공과대학");
-//		member.setDeptNo("11");
-//		member.setLecNo("999");
-//		member.setLecNo1("101");
-//		member.setLecNo2("202");
-//		member.setLecNo3("303");
-//		member.setLecNo4("404");
-//		member.setLecNo5("505");
-//		memberDAO.signUp(member);
-//		res.setData(member);
-		return res;
+
+		return new ResponseEntity<>(rms, headers, HttpStatus.OK);
 	}
+
+	// 회원 전체 조회
+	@GetMapping("/member")
+	public ResponseEntity<ResponseMessage> findAllMember(@ModelAttribute Member member){
+
+		
+		List<Member> memberList = memberService.findAllMember();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+
+		ResponseMessage rms = new ResponseMessage();
+
+		if (memberList != null) {
+			rms.setData(memberList);
+			rms.setMessage("회원 전체 조회 성공");
+			rms.setStatus(StatusEnum.OK);
+		} else {
+			rms.setData(memberList);
+			rms.setMessage("회원 전체 조회 실패");
+			rms.setStatus(StatusEnum.INTERNAL_SERER_ERROR);
+		}
+
+		return new ResponseEntity<>(rms, headers, HttpStatus.OK);
+	}
+
+	// 회원 상세 조회
+	@GetMapping("/member/{id}")
+	public ResponseEntity<ResponseMessage> findMemberDetailById(@PathVariable int id){
+
+		//회원 가입 결과 : 1. 성공  0. 실패
+		Member memberDetail = memberService.findMemberDetailById(id);		
+		HttpHeaders headers = new HttpHeaders();	
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+
+		ResponseMessage rms = new ResponseMessage();
+
+	if (memberDetail != null) {
+		rms.setData(memberDetail);
+		rms.setMessage("회원 전체 조회 성공");
+		rms.setStatus(StatusEnum.OK);
+	} else {
+		rms.setData(memberDetail);
+		rms.setMessage("회원 전체 조회 실패");
+		rms.setStatus(StatusEnum.INTERNAL_SERER_ERROR);
+	}
+
+	return new ResponseEntity<>(rms, headers, HttpStatus.OK);
+	}
+
 }
