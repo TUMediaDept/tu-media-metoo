@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tumedia.metoo.dao.lecture.LectureEvaluationDAO">
+
+	<select id="findAllLectureEvaluation"
+		resultType="com.tumedia.metoo.model.lecture.LectureEvaluation">
+		SELECT
+		*
+		FROM tumedia.LECTURE_EVALUATION
+	</select>
+
+	<select id="findEvaluationDetailBySeq"
+		resultType="com.tumedia.metoo.model.lecture.LectureEvaluation">
+		SELECT 
+		*
+		FROM tumedia.LECTURE_EVALUATION
+		WHERE ID = #{id}
+	</select>
+	
+	
+	<insert id="insertLectureEvaluation">
+		INSERT
+		INTO tumedia.LECTURE_EVALUATION (
+		TITLE
+		, LEC_NAME
+		, LEC_NO
+		, P_NAME
+		, AUTHOR
+		, REVIEW
+		, LEC_RATE
+		, CREATED_AT
+		) VALUES (
+			#{title}
+			,#{lecName}
+			,#{lecNo}
+			,#{pName}
+			,#{author}
+			,#{review}
+			,#{lecRate}
+			, SYSDATE()
+		)
+	</insert>
+
+</mapper>
