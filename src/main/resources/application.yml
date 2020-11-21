@@ -1,14 +1,23 @@
 server: 
   port: 8080
 
-## Database 설정
+
 ---
 spring:
+
+  ## Database 설정
   datasource:
     driverClassName: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://127.0.0.1:3306/tumedia
     username: root
     password: 1234
+    
+  ## JSP 설정 (.jsp 파일을 보관할 디렉토리 설정)
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
     
 mybatis:
   mapper-locations: classpath:/META-INF/mapper/*.xml
